@@ -1,0 +1,18 @@
+body {
+  padding: 0px !important;
+}
+
+.component-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#data-grid-row,
+#panels-row {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.component-container > * {
+  margin: 0.25rem 0;
+}

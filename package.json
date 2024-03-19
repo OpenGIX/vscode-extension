@@ -1,0 +1,307 @@
+{
+  "name": "open-gis-editor",
+  "displayName": "Open GIS Editor",
+  "description": "Open GIS editor for VSCode.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "panel.BasicEditorCanvasPreview.FollowCursor",
+        "title": "Follow Cursor"
+      },
+      {
+        "command": "panel.BasicEditorCanvasPreview.ResetZoom",
+        "title": "Reset Zoom",
+        "icon": {
+          "light": "media/images/screen-normal.svg",
+          "dark": "media/images/screen-normal-dark.svg"
+        }
+      },
+      {
+        "command": "panel.BasicEditorProperties.AddProperty",
+        "title": "Add Property",
+        "icon": {
+          "light": "media/images/new-file.svg",
+          "dark": "media/images/new-file-dark.svg"
+        }
+      },
+      {
+        "command": "panel.BasicEditorProperties.ApplySchema",
+        "title": "Apply Schema",
+        "icon": {
+          "light": "media/images/schema.svg",
+          "dark": "media/images/schema-dark.svg"
+        }
+      },
+      {
+        "command": "addLayer",
+        "title": "New Layer...",
+        "icon": {
+          "light": "media/images/new-file.svg",
+          "dark": "media/images/new-file-dark.svg"
+        }
+      },
+      {
+        "command": "toggleLayerVisibility",
+        "title": "Toggle Layer Visibility",
+        "icon": {
+          "light": "media/images/eye.svg",
+          "dark": "media/images/eye-dark.svg"
+        }
+      },
+      {
+        "command": "deleteSelectedLayers",
+        "title": "Delete"
+      },
+      {
+        "command": "mergeSelectedLayers",
+        "title": "Merge selected layers"
+      },
+      {
+        "command": "importLayers",
+        "title": "Import layers..."
+      },
+      {
+        "command": "prettifyDocument",
+        "title": "Prettify"
+      },
+      {
+        "command": "minifyDocument",
+        "title": "Minify"
+      },
+      {
+        "command": "panel.BasicEditorCanvasPreview.ZoomIn",
+        "title": "Zoom In",
+        "icon": {
+          "light": "media/images/zoom-in.svg",
+          "dark": "media/images/zoom-in-dark.svg"
+        }
+      },
+      {
+        "command": "panel.BasicEditorCanvasPreview.ZoomOut",
+        "title": "Zoom In",
+        "icon": {
+          "light": "media/images/zoom-out.svg",
+          "dark": "media/images/zoom-out-dark.svg"
+        }
+      },
+      {
+        "command": "panel.BasicEditorCanvasPreview.FollowCursor",
+        "title": "Follow Cursor"
+      },
+      {
+        "command": "properties.FollowCursor",
+        "title": "Follow Cursor"
+      }
+    ],
+    "languages": [
+      {
+        "id": "json",
+        "extensions": [
+          ".json",
+          ".geojson",
+          ".kgl",
+          ".topojson"
+        ],
+        "aliases": [
+          "JSON",
+          "GeoJSON",
+          "KeplerGL JSON",
+          "Topology JSON"
+        ],
+        "configuration": "./json-language-configuration.json"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "*.geojson",
+        "url": "https://geojson.org/schema/GeoJSON.json"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "addLayer",
+          "when": "view == panel.BasicEditorLayers",
+          "group": "navigation"
+        },
+        {
+          "command": "importLayers",
+          "when": "view == panel.BasicEditorLayers"
+        },
+        {
+          "command": "minifyDocument",
+          "when": "view == panel.BasicEditorLayers"
+        },
+        {
+          "command": "prettifyDocument",
+          "when": "view == panel.BasicEditorLayers"
+        },
+        {
+          "command": "panel.BasicEditorProperties.AddProperty",
+          "when": "view == panel.BasicEditorProperties",
+          "group": "navigation"
+        },
+        {
+          "command": "panel.BasicEditorProperties.ApplySchema",
+          "when": "view == panel.BasicEditorProperties",
+          "group": "navigation"
+        },
+        {
+          "command": "panel.BasicEditorCanvasPreview.ResetZoom",
+          "when": "view == panel.BasicEditorCanvasPreview"
+        },
+        {
+          "command": "panel.BasicEditorCanvasPreview.FollowCursor",
+          "when": "view == panel.BasicEditorCanvasPreview"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "toggleLayerVisibility",
+          "when": "view == panel.LayersExplorer && viewItem != depenedency",
+          "group": "inline"
+        },
+        {
+          "command": "addLayer",
+          "when": "view == panel.LayersExplorer",
+          "group": "inline"
+        },
+        {
+          "command": "deleteSelectedLayers",
+          "when": "view == panel.LayersExplorer"
+        },
+        {
+          "command": "mergeSelectedLayers",
+          "when": "view == panel.LayersExplorer"
+        },
+        {
+          "command": "properties.FollowCursor",
+          "when": "view == panel.BasicEditorProperties"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "editor.BasicEditorCanvas",
+        "displayName": "Map View",
+        "priority": "option",
+        "selector": [
+          {
+            "filenamePattern": "*.geojson"
+          }
+        ]
+      },
+      {
+        "viewType": "otherContext.OtherView",
+        "displayName": "Map View",
+        "priority": "default",
+        "selector": [
+          {
+            "filenamePattern": "*.yaml"
+          }
+        ]
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "openGISEditor",
+          "title": "Open GIX Editor",
+          "icon": "media/logo.png"
+        }
+      ]
+    },
+    "views": {
+      "openGISEditor": [
+        {
+          "id": "_panel.LayersExplorer",
+          "name": "Layers",
+          "contextualTitle": "Canvas layers editor & explorer.",
+          "visibility": "visible",
+          "type": "tree",
+          "when": "resourceExtname == .geojson || resourceExtname == .yaml"
+        },
+        {
+          "id": "panel.BasicEditorLayers",
+          "name": "Layers",
+          "contextualTitle": "Canvas layers editor & explorer.",
+          "visibility": "visible",
+          "type": "tree",
+          "when": "resourceExtname == .geojson || resourceExtname == .yaml"
+        },
+        {
+          "id": "_panel.PropertiesEditor",
+          "name": "Properties",
+          "contextualTitle": "Properties editor.",
+          "visibility": "visible",
+          "type": "webview",
+          "when": "resourceExtname == .geojson"
+        }
+      ],
+      "explorer": [
+        {
+          "id": "panel.BasicEditorCanvasPreview",
+          "name": "Preview",
+          "visibility": "visible",
+          "type": "webview",
+          "when": "activeCustomEditorId != editor.BasicEditorCanvas && (resourceExtname == .geojson || resourceExtname == .yaml)"
+        },
+        {
+          "id": "panel.BasicEditorProperties",
+          "name": "Properties",
+          "contextualTitle": "Properties editor.",
+          "visibility": "visible",
+          "type": "webview",
+          "when": "resourceExtname == .geojson || resourceExtname == .yaml"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "panel.LayersExplorer",
+        "contents": "No layers found [learn more](https://opengiseditor.openprojex.org/docs/layers).\n[Add Layer](command:addLayer)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/jsonpath": "^0.2.4",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.56.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@vscode/webview-ui-toolkit": "^1.4.0",
+    "geojson": "^0.5.0",
+    "jsonpath-plus": "^8.0.0",
+    "vscode-json-languageservice": "^5.3.9"
+  }
+}
