@@ -1,25 +1,28 @@
-# Open GIS Editor
+# OpenGIX Editor for VSCode
+
 https://www.flaticon.com/free-icon/topography_992325?related_id=992325&origin=search
 <a href="https://www.flaticon.com/free-icons/topography" title="topography icons">Topography icons created by geotatah - Flaticon</a>
 https://github.com/microsoft/vscode-webview-ui-toolkit
 
-A VSCode extension based on the [Open GIS IDE] for working with geospactial data.
+A VSCode extension based on the [OpenGIX IDE] for working with geospactial data.
 
 This is the README for your extension "open-gis-editor". After writing up a brief description, we recommend including the following sections.
 
 ## Coordinate Reference System (CRS)
+
 - https://epsg.io
 - https://en.wikipedia.org/wiki/List_of_national_coordinate_reference_systems
 - https://mapserver.org/ogc/wms_server.html#coordinate-systems-and-axis-orientation
-
 
 ## LatLong ranges
 
             North (+90)
                |
+
 (-180) West ———+——— East (+180)
+
                |
-             South (-90)
+            South (-90)
 
 ## Features
 
@@ -32,6 +35,7 @@ For example if there is an image subfolder under your extension project workspac
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
 ## Functionality
+
 - Neatify: format document to be neatly organized by a subset of linear properties like Features to a FeatureCollection.
 - Preffify: format document to be easily traversible (collaapsable) for human interactivty.
 - Minify: compress document whitespace for maximum size optimization.
@@ -50,8 +54,8 @@ For example:
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- `myExtension.enable`: Enable/disable this extension.
+- `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
@@ -79,19 +83,19 @@ Added features X, Y, and Z.
 
 Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
 
 ## Working with Markdown
 
 You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
+- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
+- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
 
 ## For more information
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**

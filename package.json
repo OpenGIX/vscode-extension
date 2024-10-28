@@ -1,7 +1,7 @@
 {
-  "name": "open-gis-editor",
-  "displayName": "Open GIS Editor",
-  "description": "Open GIS editor for VSCode.",
+  "name": "opengix-vscode-extension",
+  "displayName": "OpenGIX Editor",
+  "description": "OpenGIX editor for VSCode.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
@@ -281,7 +281,10 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@types/jsonpath": "^0.2.4",
@@ -295,6 +298,7 @@
     "eslint": "^8.56.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
+    "vitepress": "^1.4.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
