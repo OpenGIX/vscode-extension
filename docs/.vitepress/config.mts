@@ -2,9 +2,9 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "OpenGIX / VSCode IDE",
+  title: "OpenGIX VS Code IDE",
   description:
-    "A VSCode extension based on the [Open GIS IDE] for working with geospactial data.",
+    "A VS Code extension based on the [Open GIS IDE] for working with geospactial data.",
 
   cleanUrls: true,
 
@@ -24,18 +24,60 @@ export default defineConfig({
     nav: [
       { text: "OpenGIX", link: "https://opengix.org" },
 
-      { text: "Docs", link: "/markdown-examples" },
+      { text: "Docs", link: "/getting-started" },
     ],
 
     sidebar: [
       {
-        text: "Examples",
+        text: "Usage",
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "Getting Started", link: "/getting-started" },
+          {
+            text: "Features",
+            link: "/features",
+            items: [
+              { text: "Canvas Editor", link: "/features#canvas-editor" },
+              {
+                text: "Properties Explorer",
+                link: "/features#properties-explorer",
+              },
+              { text: "Integrations", link: "/features#integrations" },
+            ],
+          },
+        ],
+      },
+      {
+        text: "Contributing",
+        link: "/contribute",
+        items: [
+          { text: "Overview", link: "/overview" },
+          { text: "Workspace Configuration", link: "/markdown-examples" },
+          {
+            text: "Developer Tour",
+            link: "/api-examples",
+            items: [
+              {
+                text: "OpenGIX Panel",
+                link: "",
+              },
+              { text: "Explorer", link: "" },
+            ],
+          },
+          {
+            text: "Development",
+            link: "/develop",
+            items: [
+              { text: "Run", link: "/developer#run" },
+              { text: "Test", link: "/developer#test" },
+              { text: "Build", link: "/developer#build" },
+              { text: "Deploy", link: "/developer#deploy" },
+            ],
+          },
         ],
       },
     ],
+
+    externalLinkIcon: true,
 
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },

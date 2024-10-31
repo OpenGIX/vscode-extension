@@ -1,3 +1,4 @@
+import { getNonce } from "../utilities/getNonce";
 import {
   provideVSCodeDesignSystem,
   vsCodeDataGrid,
@@ -7,45 +8,53 @@ import {
   DataGridCell,
 } from "@vscode/webview-ui-toolkit";
 
-provideVSCodeDesignSystem().register(vsCodeDataGrid(), vsCodeDataGridCell(), vsCodeDataGridRow());
+const nonce = getNonce();
 
+provideVSCodeDesignSystem().register(
+  vsCodeDataGrid(),
+  vsCodeDataGridCell(),
+  vsCodeDataGridRow()
+);
 
 // Initial load show welcome view
 window.addEventListener("load", initPropertiesTable);
 
 // Load properties for selected element
 // window.addEventListener('message', event => main(JSON.parse(event.data).properties));
-window.addEventListener('message', event => {
+window.addEventListener("message", (event) => {
   const payload = JSON.parse(event.data);
 
   // This does not account for nested `properties`
   // in multidimensional objects.
-  // TODO: We need a more comprehsive solutoin for 
+  // TODO: We need a more comprehsive solutoin for
   // finding the "closes" properties object.
-  if(payload.hasOwnProperty('properties')) {
+  if (payload.hasOwnProperty("properties")) {
     initPropertiesTable(JSON.parse(event.data)?.properties);
   }
 });
 
 /**
- * 
- * @param properties 
- * @returns 
+ *
+ * @param properties
+ * @returns
  */
 function initPropertiesTable(properties?: any) {
   // Define default data grid
-  const basicDataGrid = document.getElementById("properties-editor") as DataGrid;
+  const basicDataGrid = document.getElementById(
+    "properties-editor"
+  ) as DataGrid;
 
   basicDataGrid.columnDefinitions = [
-    { columnDataKey: "property", title: "Property"},
-    { columnDataKey: "value", title: "Value" }
+    { columnDataKey: "property", title: "Property" },
+    { columnDataKey: "value", title: "Value" },
   ];
 
   basicDataGrid.rowsData = [];
 
   // TODO: Can this be refactored?
-  Object.keys(properties).map(property => 
-    basicDataGrid.rowsData.push({ property, value: properties[property] }));
+  Object.keys(properties).map((property) =>
+    basicDataGrid.rowsData.push({ property, value: properties[property] })
+  );
 
   // Initialize editable data grid
   initEditableDataGrid("basic-grid");
@@ -99,7 +108,10 @@ function setCellEditable(cell: DataGridCell) {
 
 // Handle keyboard events on a given cell
 function handleKeydown(e: KeyboardEvent, cell: DataGridCell) {
-  if (!cell.hasAttribute("contenteditable") || cell.getAttribute("contenteditable") === "false") {
+  if (
+    !cell.hasAttribute("contenteditable") ||
+    cell.getAttribute("contenteditable") === "false"
+  ) {
     if (e.key === "Enter") {
       e.preventDefault();
       setCellEditable(cell);

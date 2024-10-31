@@ -1,6 +1,6 @@
 {
   "name": "opengix-vscode-extension",
-  "displayName": "OpenGIX Editor",
+  "displayName": "OpenGIX IDE",
   "description": "OpenGIX editor for VSCode.",
   "version": "0.0.1",
   "engines": {
@@ -189,6 +189,18 @@
         }
       ]
     },
+    "notebooks": [
+      {
+          "type": "my-notebook",
+          "displayName": "My Notebook",
+          "priority": "default",
+          "selector": [
+              {
+                  "filenamePattern": "*.notebook"
+              }
+          ]
+      }
+  ],    
     "customEditors": [
       {
         "viewType": "editor.BasicEditorCanvas",
@@ -214,18 +226,18 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "openGISEditor",
-          "title": "Open GIX Editor",
+          "id": "opengix-ide",
+          "title": "OpenGIX IDE",
           "icon": "media/logo.png"
         }
       ]
     },
     "views": {
-      "openGISEditor": [
+      "opengix-ide": [
         {
-          "id": "_panel.LayersExplorer",
-          "name": "Layers",
-          "contextualTitle": "Canvas layers editor & explorer.",
+          "id": "panel.gixEditorWorkspace",
+          "name": "Workspace",
+          "contextualTitle": "OpenGIX Workspace properties.",
           "visibility": "visible",
           "type": "tree",
           "when": "resourceExtname == .geojson || resourceExtname == .yaml"
@@ -239,10 +251,10 @@
           "when": "resourceExtname == .geojson || resourceExtname == .yaml"
         },
         {
-          "id": "_panel.PropertiesEditor",
+          "id": "panel.gixEditorProperties",
           "name": "Properties",
           "contextualTitle": "Properties editor.",
-          "visibility": "visible",
+          "visibility": "collapsed",
           "type": "webview",
           "when": "resourceExtname == .geojson"
         }
@@ -267,7 +279,11 @@
     },
     "viewsWelcome": [
       {
-        "view": "panel.LayersExplorer",
+        "view": "panel.gixEditorWorkspace",
+        "contents": "[Create Workspace](command:addLayer)\n[Open Workspace](command:addLayer)\n[Import Workspace](command:addLayer)\nWorkspaces organize layered collections of GeoJSON and TopoJSON documents into projects.\n[Learn more](https://opengiseditor.openprojex.org/docs/layers) about workspaces."
+      },
+      {
+        "view": "panel.BasicEditorLayers",
         "contents": "No layers found [learn more](https://opengiseditor.openprojex.org/docs/layers).\n[Add Layer](command:addLayer)"
       }
     ]

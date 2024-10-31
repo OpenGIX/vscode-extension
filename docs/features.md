@@ -1,3 +1,14 @@
+---
+prev: false
+next:
+  text: "Getting Started"
+  link: "/getting-started"
+---
+
 # Features
 
-# Edit
+## Canvas Editor
+
+## Properties Explorer
+
+## Integrations

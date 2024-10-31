@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "OpenGIX Editor"
-  text: "for VSCode"
+  text: "for VS Code"
   tagline: Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
   image:
     src: /vscode.png
@@ -30,3 +30,5 @@ features:
     link: /features#integrate
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
+
+![The Map Editor](/map-editor.png)

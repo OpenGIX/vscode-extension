@@ -4,11 +4,11 @@ import * as vscode from "vscode";
  * The Layers Explorer panel provides a tree view of the document GeoJSON model.
  *
  */
-export class BasicEditorLayers {
+export class GIXEditorWorkspace {
   /**
    * The globally registered name for this panel view.
    */
-  private static readonly viewType = "panel.BasicEditorLayers";
+  private static readonly viewType = "panel.gixEditorWorkspace";
 
   /**
    * Intialize explorer view.
@@ -16,12 +16,12 @@ export class BasicEditorLayers {
    */
   public static register(): vscode.Disposable {
     // Register new layer functionality.
-    vscode.commands.registerCommand("addLayer", BasicEditorLayers.addLayer);
+    vscode.commands.registerCommand("addLayer", GIXEditorWorkspace.addLayer);
 
     const provider = new DataProvider();
 
     // Register data provider.
-    vscode.window.registerTreeDataProvider("layersDataProvider", provider);
+    // vscode.window.registerTreeDataProvider('layersDataProvider', provider);
 
     // Create tree view
     return vscode.window.createTreeView(this.viewType, {
