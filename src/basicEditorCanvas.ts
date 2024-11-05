@@ -136,7 +136,7 @@ export class BasicEditorCanvas implements vscode.CustomTextEditorProvider {
 				<link href="${styleCanvasUri}" rel="stylesheet" />
 				<link href="${styleLeafletUri}" rel="stylesheet" />
 
-				<title>Open GIS Editor</title>
+				<title>Open GIX Editor</title>
 			</head>
 			<body>
 				<div class="map-container">

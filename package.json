@@ -1,5 +1,5 @@
 {
-  "name": "opengix-vscode-extension",
+  "name": "opengix-editor-vscode",
   "displayName": "OpenGIX IDE",
   "description": "OpenGIX editor for VSCode.",
   "version": "0.0.1",
@@ -191,16 +191,16 @@
     },
     "notebooks": [
       {
-          "type": "my-notebook",
-          "displayName": "My Notebook",
-          "priority": "default",
-          "selector": [
-              {
-                  "filenamePattern": "*.notebook"
-              }
-          ]
+        "type": "my-notebook",
+        "displayName": "My Notebook",
+        "priority": "default",
+        "selector": [
+          {
+            "filenamePattern": "*.notebook"
+          }
+        ]
       }
-  ],    
+    ],
     "customEditors": [
       {
         "viewType": "editor.BasicEditorCanvas",
@@ -303,6 +303,8 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "@nx/web": "20.0.0",
+    "@nx/webpack": "20.0.0",
     "@types/jsonpath": "^0.2.4",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
@@ -312,6 +314,7 @@
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.8",
     "eslint": "^8.56.0",
+    "nx": "20.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "vitepress": "^1.4.1",
@@ -323,5 +326,6 @@
     "geojson": "^0.5.0",
     "jsonpath-plus": "^10.0.0",
     "vscode-json-languageservice": "^5.3.9"
-  }
+  },
+  "nx": {}
 }
